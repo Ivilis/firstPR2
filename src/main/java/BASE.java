@@ -1,5 +1,6 @@
 
 import java.util.Scanner;
+import ProgBranches.*;
 
 /**
  * @author Ivilis
@@ -16,39 +17,36 @@ public class BASE {
         switch (mainSwitch) {
             case 1:
 
-
+                Calculator calc1 = new Calculator();
                 Scanner scanThis = new Scanner(System.in);
 
                 //запрашиваем первый операнд
                 System.out.println("Print the First Operand");
-                float a = scanThis.nextFloat();
+                calc1.setOperand1(scanThis.nextFloat());
 
                 //запрашиваем второй операнд
                 System.out.println("Print the Second Operand");
-                float b = scanThis.nextFloat();
+                calc1.setOperand2(scanThis.nextFloat());
 
                 //запрашиваем операцию
                 System.out.println("Choose your operation from list:\n 1: +\n 2: -\n 3: *\n 4: /");
                 int z = scanThis.nextInt();
 
+
                 scanThis.close();
 
                 switch (z) {
                     case 1:
-                        float sum = a + b;
-                        System.out.printf("%.4f + %.4f = %.4f", a, b, sum);
+                        System.out.printf("%.4f + %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateSum());
                         break;
                     case 2:
-                        float sub = a - b;
-                        System.out.printf("%.4f - %.4f = %.4f", a, b, sub);
+                        System.out.printf("%.4f - %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateSubtraction());
                         break;
                     case 3:
-                        float multip = a * b;
-                        System.out.printf("%.4f * %.4f = %.4f", a, b, multip);
+                        System.out.printf("%.4f * %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateMultiplication());
                         break;
                     case 4:
-                        float div = a / b;
-                        System.out.printf("%.4f / %.4f = %.4f", a, b, div);
+                        System.out.printf("%.4f / %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateDivision());
                         break;
                     default:
                         System.out.printf("Это уже какой-то бред");
@@ -56,42 +54,38 @@ public class BASE {
                 }
                 break;
 
+
+
                 //кейс 2 - поиск максимального элемента массива строк
             case 2:
 
+                //создаем экземпляр MaxArrayElement
+                MaxArrayElement newWordArray = new MaxArrayElement();
                 Scanner massiveScan = new Scanner(System.in);
 
                 //запрашиваем размер массива
                 System.out.println("Задайте размер одномерного массива cлов целым числом. Если не целым, то всё сломается. ЗЫ. обработка ошибок будет добавлена в будущих релизах");
-                int arrSize = massiveScan.nextInt();
-                String wordArr[] = new String[arrSize];
+                newWordArray.setArrSize(massiveScan.nextInt());
+                newWordArray.setWordArr(new String[newWordArray.getArrSize()]);
 
                 //запрашиваем ввод элементов массива
                 System.out.println("Вводи слова - элементы массива:");
-                for (int i=0; i < arrSize; i++)
-                {wordArr[i] = massiveScan.next();}
+                for (int i=0; i < newWordArray.getArrSize(); i++)
+                {newWordArray.getWordArr()[i] = massiveScan.next();}
 
                 //выводим массив на экран
-                System.out.printf("Ваш массив из %d элементов: \n", arrSize);
+                System.out.printf("Ваш массив из %d элементов: \n", newWordArray.getArrSize());
 
-                for (int i=0; i < arrSize; i++)
+                for (int i=0; i < newWordArray.getArrSize(); i++)
                 {
                     int visibleCount = i+1;
                     System.out.printf("Элемент №" + visibleCount + ": ");
-                    System.out.println(wordArr[i]);
-                }
-
-                //находим максимальный элемент массива строк
-                String longestWord = wordArr[0];
-                for (int i=0; i < arrSize-1; i++) {
-                    if (longestWord.length() < wordArr[i + 1].length()) {
-                        longestWord = wordArr[i+1];
-                    }
+                    System.out.println(newWordArray.getWordArr()[i]);
                 }
 
                 //выводим его на экран
                 System.out.println("Длиннейшее слово в массиве: ");
-                System.out.println(longestWord);
+                System.out.println(newWordArray.getMaxElement());
                 break;
 
             default:
@@ -100,26 +94,5 @@ public class BASE {
         }
         firstSwitchScan.close();
 
-        ////легаси код калькулятора.
-        /*//выводим выводим результат в зависимости от выбранной операции
-        if (z.equals("+"))
-        {
-            float rez = a + b;
-            System.out.printf("%.4f + %.4f = %.4f", a, b, rez);
-        } else if (z.equals("-"))
-        {
-            float rez = a - b;
-            System.out.printf("%.4f - %.4f = %.4f", a, b, rez);
-        } else if (z.equals("*"))
-        {
-            float rez = a * b;
-            System.out.printf("%.4f * %.4f = %.4f", a, b, rez);
-        } else if (z.equals("/"))
-        {
-            float rez = a / b;
-            System.out.printf("%.4f * %.4f = %.4f", a, b, rez);
-        }
-        else System.out.println("Invalid Operation Symbol!!!");
-        */
     }
 }
