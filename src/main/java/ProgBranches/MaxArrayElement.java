@@ -43,5 +43,15 @@ public class MaxArrayElement {
         return  longestWord;
     }
 
+    // выводим массив на экран
+    public void printMassive () {
+        System.out.printf("Ваш массив из %d элементов: \n", arrSize);
+
+        for (int i = 0; i < arrSize; i++) {
+            int visibleCount = i + 1;
+            System.out.printf("Элемент №" + visibleCount + ": ");
+            System.out.println(wordArr[i]);
+        }
+    }
 
 }

@@ -30,18 +30,22 @@ public class Calculator implements CalcOperations{
     }
 
     public float calculateSum () {
-        return (operand1 + operand2);
+        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 + operand2);
+        return operand1 + operand2;
     }
 
     public float calculateSubtraction() {
+        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 - operand2);
         return (operand1 - operand2);
     }
 
     public float calculateMultiplication () {
+        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 * operand2);
         return (operand1 * operand2);
     }
 
     public float calculateDivision () {
+        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 / operand2);
         return (operand1 / operand2);
     }
 

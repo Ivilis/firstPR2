@@ -37,16 +37,20 @@ public class BASE {
 
                 switch (z) {
                     case 1:
-                        System.out.printf("%.4f + %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateSum());
+                        calc1.calculateSum();
+                        //System.out.printf("%.4f + %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateSum());
                         break;
                     case 2:
-                        System.out.printf("%.4f - %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateSubtraction());
+                        calc1.calculateSubtraction();
+                        //System.out.printf("%.4f - %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateSubtraction());
                         break;
                     case 3:
-                        System.out.printf("%.4f * %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateMultiplication());
+                        calc1.calculateMultiplication();
+                        //System.out.printf("%.4f * %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateMultiplication());
                         break;
                     case 4:
-                        System.out.printf("%.4f / %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateDivision());
+                        calc1.calculateDivision();
+                        //System.out.printf("%.4f / %.4f = %.4f", calc1.getOperand1(), calc1.getOperand2(), calc1.calculateDivision());
                         break;
                     default:
                         System.out.printf("Это уже какой-то бред");
@@ -74,14 +78,7 @@ public class BASE {
                 {newWordArray.getWordArr()[i] = massiveScan.next();}
 
                 //выводим массив на экран
-                System.out.printf("Ваш массив из %d элементов: \n", newWordArray.getArrSize());
-
-                for (int i=0; i < newWordArray.getArrSize(); i++)
-                {
-                    int visibleCount = i+1;
-                    System.out.printf("Элемент №" + visibleCount + ": ");
-                    System.out.println(newWordArray.getWordArr()[i]);
-                }
+                newWordArray.printMassive();
 
                 //выводим его на экран
                 System.out.println("Длиннейшее слово в массиве: ");
