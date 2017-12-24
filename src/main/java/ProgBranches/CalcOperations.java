@@ -7,5 +7,5 @@ public interface CalcOperations {
 
      float calculateMultiplication ();
 
-     float calculateDivision ();
+     float calculateDivision () throws IllegalArgumentException;
 }

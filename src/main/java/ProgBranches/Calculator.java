@@ -35,18 +35,24 @@ public class Calculator implements CalcOperations{
     }
 
     public float calculateSubtraction() {
-        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 - operand2);
+        System.out.printf("%.4f - %.4f = %.4f", operand1, operand2, operand1 - operand2);
         return (operand1 - operand2);
     }
 
     public float calculateMultiplication () {
-        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 * operand2);
+        System.out.printf("%.4f * %.4f = %.4f", operand1, operand2, operand1 * operand2);
         return (operand1 * operand2);
     }
 
-    public float calculateDivision () {
-        System.out.printf("%.4f + %.4f = %.4f", operand1, operand2, operand1 / operand2);
-        return (operand1 / operand2);
-    }
+    public float calculateDivision () throws IllegalArgumentException
+        {
+        System.out.printf("%.4f / %.4f = %.4f\n", operand1, operand2, operand1 / operand2);
+
+        if (operand2 == 0)
+            {
+            throw new IllegalArgumentException("Низзя делить на 0!");
+            }
+            return (operand1 / operand2);
+        }
 
 }

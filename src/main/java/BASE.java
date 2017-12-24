@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import ProgBranches.*;
 
@@ -11,7 +12,10 @@ public class BASE {
         //запрашиваем выбор операций 1 - калькулятор, 2 - поиск максимального элемента массива строк
         Scanner firstSwitchScan = new Scanner(System.in);
         System.out.println("Choose, what to do:\n 1 - Calculator\n 2 - Array Stuff");
-        int mainSwitch = firstSwitchScan.nextInt();
+        //ловим невалидный ввод всюду
+        try {
+            int mainSwitch = firstSwitchScan.nextInt();
+
 
 //кейс 1 - калькулятор
         switch (mainSwitch) {
@@ -56,6 +60,7 @@ public class BASE {
                         System.out.printf("Это уже какой-то бред");
                         break;
                 }
+
                 break;
 
 
@@ -90,6 +95,13 @@ public class BASE {
                 break;
         }
         firstSwitchScan.close();
+
+        } // обработка пойманного невалидного ввода
+        catch (InputMismatchException e1)
+        {
+            System.out.println("We got Exception: " + e1.toString());
+            System.out.println("Only numbers, man! Think about that.");
+        }
 
     }
 }
